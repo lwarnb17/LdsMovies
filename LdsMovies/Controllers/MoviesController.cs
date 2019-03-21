@@ -25,7 +25,7 @@ namespace LdsMovies.Controllers
         //}
 
         // GET: Movies
-        public async Task<IActionResult> Index(string movieGenre, string searchString, string MovieSort)
+        public async Task<IActionResult> Index(string MovieGenre, string searchString, string MovieSort)
         {
             // Use LINQ to get list of genres.
             IQueryable<string> genreQuery = from m in _context.Movie
@@ -129,7 +129,7 @@ namespace LdsMovies.Controllers
         // POST: Movies/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price")] Movie movie)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Rating,Price")] Movie movie)
         {
             if (id != movie.Id)
             {

@@ -12,11 +12,7 @@
 
 <form asp-controller="Movies" asp-action="Index">
     <p>
-        <label>Movie Genre</label>
-        <select asp-for="MovieGenre" asp-items="Model.Genres">
-            <option value=""></option>
-        </select>
-
+        
         <label>Sort By</label>
         <select asp-for="MovieSort" asp-items="Model.SortOptions">
             <option value=""></option>
