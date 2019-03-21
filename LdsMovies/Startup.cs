@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
+using LdsMovies.Models;
 
 namespace LdsMovies
 {
@@ -33,6 +35,9 @@ namespace LdsMovies
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            services.AddDbContext<LdsMoviesContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("LdsMoviesContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
